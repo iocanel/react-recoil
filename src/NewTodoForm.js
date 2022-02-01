@@ -1,15 +1,20 @@
 import './NewTodoForm.css';
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { todosState } from './atoms';
+import { addTodoCreator } from './creators';
 
-function NewTodoForm({add}) {
-    const [title, setTitle] = useState('');
+function NewTodoForm() {
+    const addTodo = addTodoCreator(useRecoilState(todosState));
+    const [title, setTitle] = useState("");
+
     return (
         <>
         <h1>New Todo</h1>
             <div>
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)}></input>
                 <button onClick={() => {
-                            add({"title": title});
+                            addTodo({"title": title});
                             setTitle("");
                         }}>Add</button>
             </div>

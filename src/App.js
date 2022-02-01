@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
 import './App.css';
 import TodoList from './TodoList';
 import NewTodoForm from './NewTodoForm';
@@ -20,15 +21,17 @@ function App() {
     const remove = (title) => {
         setTodos(todos.filter(todo => todo.title !== title));
     }
- 
+    
     return (
+    <RecoilRoot>
             <>
-            <div className="App">
-              <h1>Todo App </h1>
-              <NewTodoForm add={add}/>
-              <TodoList todos={todos} remove={remove}/>
-            </div>
+                <div className="App">
+                    <h1>Todo App </h1>
+                    <NewTodoForm/>
+                    <TodoList/>
+                </div>
             </>
+    </RecoilRoot>
     );
 }
 

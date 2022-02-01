@@ -1,7 +1,7 @@
-* React Template
+* React Recoil
 
 
 [[../../actions/workflows/build.yml/badge.svg]]
 
 
-A simple react project template.
+A simple react project template that uses [[https://recoiljs.org/]].
